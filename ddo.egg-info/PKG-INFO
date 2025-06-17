@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: ddo
+Version: 0.1
+Summary: Domain-Driven Orchestration framework
+Home-page: https://github.com/dexter-labs-io/ddo
+Author: DexterLabs
+Author-email: opensource@dexter-labs.io
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
