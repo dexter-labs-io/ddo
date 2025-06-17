@@ -1,0 +1,1 @@
+# Placeholder for Redis memory integration
