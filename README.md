@@ -1,2 +1,0 @@
-# ddo
-domain driven orchestrator
