@@ -1,9 +1,11 @@
-# DDO – Domain-Driven Orchestration
 # DDO – Domain-Driven Orchestration for GenAI
 
 Welcome to the official repository of **DDO (Domain-Driven Orchestration)** — the open, modular, and secure orchestration framework for deploying intelligent GenAI workflows at scale.
 
 DDO allows enterprises and developers to orchestrate AI agents, LLMs, toolchains, and memory across domains, clouds, and execution layers, all under a unified governance and observability fabric.
+
+![alt text](image-2.png)
+
 
 ---
 
