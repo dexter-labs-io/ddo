@@ -4,6 +4,8 @@
 
 The DDO Framework provides a modular architecture to orchestrate GenAI tools, agents, and models across multi-cloud and hybrid environments — governed by domains, enriched by memory, and secured by policy.
 
+![alt text](image-2.png)
+
 ---
 
 ## Core Loop (Request Flow)
