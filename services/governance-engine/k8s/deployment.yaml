@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: governance-engine
+  labels:
+    app: governance-engine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: governance-engine
+  template:
+    metadata:
+      labels:
+        app: governance-engine
+    spec:
+      containers:
+      - name: governance-engine
+        image: governance-engine:latest
+        ports:
+        - containerPort: 8000

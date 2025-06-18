@@ -69,3 +69,8 @@ DDO is being developed as an open-core orchestration platform with enterprise de
 - Launch managed SaaS version (Equinix + private cloud interconnect)
 - Enable integration with major cloud LLMs (Bedrock, Azure OpenAI, watsonx, Claude)
 - Build UI kits for business user orchestration
+
+## 🔄 Versions
+
+- `v0.9-vm` → VM-style version (monolithic)
+- `v1.0-msa` → Microservices-based deployment (Kubernetes-ready)

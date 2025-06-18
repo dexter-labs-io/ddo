@@ -1,0 +1,18 @@
+NAMESPACE=ddo
+SERVICES=orchestrator domain-context tool-router memory-manager governance-engine telemetry-agent api-gateway
+
+build:
+	@for svc in $(SERVICES); do \
+		echo "🐳 Building $$svc..."; \
+		docker build -t $$svc:latest services/$$svc; \
+	done
+
+deploy:
+	kubectl apply -f k8s/namespace.yaml
+	@for svc in $(SERVICES); do \
+		kubectl apply -n $(NAMESPACE) -f services/$$svc/k8s/deployment.yaml; \
+		kubectl apply -n $(NAMESPACE) -f services/$$svc/k8s/service.yaml; \
+	done
+
+clean:
+	kubectl delete namespace $(NAMESPACE)

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-manager
+  labels:
+    app: memory-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memory-manager
+  template:
+    metadata:
+      labels:
+        app: memory-manager
+    spec:
+      containers:
+      - name: memory-manager
+        image: memory-manager:latest
+        ports:
+        - containerPort: 8000

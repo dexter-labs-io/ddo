@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tool-router
+  labels:
+    app: tool-router
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tool-router
+  template:
+    metadata:
+      labels:
+        app: tool-router
+    spec:
+      containers:
+      - name: tool-router
+        image: tool-router:latest
+        ports:
+        - containerPort: 8000

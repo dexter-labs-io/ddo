@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: domain-context
+  labels:
+    app: domain-context
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: domain-context
+  template:
+    metadata:
+      labels:
+        app: domain-context
+    spec:
+      containers:
+      - name: domain-context
+        image: domain-context:latest
+        ports:
+        - containerPort: 8000

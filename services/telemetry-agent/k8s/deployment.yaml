@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telemetry-agent
+  labels:
+    app: telemetry-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telemetry-agent
+  template:
+    metadata:
+      labels:
+        app: telemetry-agent
+    spec:
+      containers:
+      - name: telemetry-agent
+        image: telemetry-agent:latest
+        ports:
+        - containerPort: 8000
