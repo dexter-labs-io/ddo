@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddo-orchestrator
+spec:
+  replicas: {{ .Values.ddoOrchestrator.replicas }}
+  selector:
+    matchLabels:
+      app: ddo-orchestrator
+  template:
+    metadata:
+      labels:
+        app: ddo-orchestrator
+    spec:
+      containers:
+        - name: orchestrator
+          image: {{ .Values.ddoOrchestrator.image }}
+          ports:
+            - containerPort: {{ .Values.ddoOrchestrator.port }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
