@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddo-orchestrator
+  namespace: ddo-system
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: ddo-orchestrator
+  template:
+    metadata:
+      labels:
+        app: ddo-orchestrator
+    spec:
+      serviceAccountName: ddo-service-account
+      securityContext:
+        runAsUser: 1001
+        runAsNonRoot: true
+        fsGroup: 2000
+      containers:
+        - name: orchestrator
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 1001
+            capabilities:
+              drop: ["ALL"]
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ddo-secrets
+                  key: OPENAI_API_KEY
+            - name: DEFAULT_AGENT
+              valueFrom:
+                configMapKeyRef:
+                  name: ddo-config
+                  key: DEFAULT_AGENT
+
+
+
+# oc adm policy add-scc-to-user anyuid -z ddo-service-account -n ddo-system
+

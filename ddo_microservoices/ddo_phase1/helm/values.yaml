@@ -1,13 +1,13 @@
-global:
-  namespace: ddo-system
-  imagePullPolicy: IfNotPresent
-  istio:
-    enabled: true
-    gateway: istio-ingressgateway
-    hosts:
-      - ddo.example.com
+replicaCount: 1
 
-ddoOrchestrator:
-  image: ddo/orchestrator:latest
-  replicas: 2
-  port: 8000
+image:
+  repository: ddo/orchestrator
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+
+resources: {}

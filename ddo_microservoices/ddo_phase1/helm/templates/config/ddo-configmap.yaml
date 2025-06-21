@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ddo-config
+  namespace: ddo-system
+data:
+  DEFAULT_AGENT: "gpt-4"
+  ENABLE_ILAB: "true"
+  MEMORY_BACKEND: "redis"

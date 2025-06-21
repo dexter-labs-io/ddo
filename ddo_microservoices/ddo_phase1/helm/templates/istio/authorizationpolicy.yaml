@@ -1,0 +1,13 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: ddo-policy
+  namespace: ddo-system
+spec:
+  selector:
+    matchLabels:
+      app: ddo-orchestrator
+  rules:
+    - from:
+        - source:
+            principals: ["cluster.local/ns/ddo-system/sa/ddo-service-account"]

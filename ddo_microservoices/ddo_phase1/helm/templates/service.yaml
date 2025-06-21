@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ddo-orchestrator
+  namespace: ddo-system
+spec:
+  selector:
+    app: ddo-orchestrator
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: external-genai-apis
+spec:
+  hosts:
+    - "api.openai.com"
+    - "bedrock.amazonaws.com"
+    - "api.watsonx.ai"
+  ports:
+    - number: 443
+      name: https
+      protocol: HTTPS
+  resolution: DNS
+  location: MESH_EXTERNAL
